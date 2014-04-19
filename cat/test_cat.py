@@ -35,13 +35,13 @@ def test_given_directory_then_prints_error_message(capsys, tmpdir):
     assert err == "cat: {}: is a directory".format(dirname)
 
 
-def test_given_empty_file_then_prints_newline(capsys, filemaker):
+def test_given_empty_file_then_prints_nothing(capsys, filemaker):
     filepath = filemaker.create_file("emptyfile", "")
 
     cat(filepath)
 
     out, err = capsys.readouterr()
-    assert out == "\n"
+    assert out == ""
 
 
 def test_given_single_file_then_prints_newline(capsys, filemaker):
