@@ -5,7 +5,8 @@ def cat(filepath):
     if not os.path.exists(filepath):
         print_no_such_file(filepath)
     else:
-        print
+        output = open(filepath).read()
+        print(output)
 
 
 def print_no_such_file(filepath):
