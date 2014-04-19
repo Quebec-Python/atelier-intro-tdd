@@ -1,2 +1,2 @@
-def echo():
+def echo(text=""):
     print
