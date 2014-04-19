@@ -1,2 +1,2 @@
 def echo(text=""):
-    print
+    print(text)
