@@ -31,7 +31,14 @@ def print_file(filepath, options):
     with open(filepath) as reader:
         lines = reader.readlines()
         for number, line in enumerate(lines, 1):
+            line = line.rstrip()
+
             if options.get('number', False):
                 sys.stdout.write("{}: ".format(number))
+
             sys.stdout.write(line)
-    sys.stdout.write("\n")
+
+            if options.get('ends', False):
+                sys.stdout.write('$')
+
+            sys.stdout.write("\n")

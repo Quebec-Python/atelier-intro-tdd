@@ -71,3 +71,12 @@ def test_given_option_number_then_prints_line_numbers(capsys, filemaker):
 
     out, err = capsys.readouterr()
     assert out == "1: a\n2: b\n3: c\n"
+
+
+def test_given_option_ends_then_prints_dollar_at_end_of_lines(capsys, filemaker):
+    filepath = filemaker.create_file("multiline", "a\nb\nc")
+
+    cat(filepath, ends=True)
+
+    out, err = capsys.readouterr()
+    assert out == "a$\nb$\nc$\n"
