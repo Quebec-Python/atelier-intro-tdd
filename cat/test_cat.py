@@ -62,3 +62,12 @@ def test_given_multiple_files_then_prints_them_in_order(capsys, filemaker):
 
     out, err = capsys.readouterr()
     assert out == "Roses are red\nViolets are blue\n"
+
+
+def test_given_option_number_then_prints_line_numbers(capsys, filemaker):
+    filepath = filemaker.create_file("multiline", "a\nb\nc")
+
+    cat(filepath, number=True)
+
+    out, err = capsys.readouterr()
+    assert out == "1: a\n2: b\n3: c\n"

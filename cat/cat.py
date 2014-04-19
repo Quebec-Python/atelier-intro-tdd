@@ -1,19 +1,20 @@
 import sys
 import os
 
-def cat(*filepaths):
+def cat(*filepaths, **options):
     for filepath in filepaths:
-        print_file(filepath)
+        if valid_filepath(filepath):
+            print_file(filepath, options)
 
 
-def print_file(filepath):
+def valid_filepath(filepath):
     if not os.path.exists(filepath):
         error_no_such_file(filepath)
+        return False
     elif os.path.isdir(filepath):
         error_is_a_directory(filepath)
-    else:
-        output = open(filepath).read()
-        print(output)
+        return False
+    return True
 
 
 def error_no_such_file(filepath):
@@ -24,3 +25,13 @@ def error_no_such_file(filepath):
 def error_is_a_directory(filepath):
     message = "cat: {}: is a directory"
     sys.stderr.write(message.format(filepath))
+
+
+def print_file(filepath, options):
+    with open(filepath) as reader:
+        lines = reader.readlines()
+        for number, line in enumerate(lines, 1):
+            if options.get('number', False):
+                sys.stdout.write("{}: ".format(number))
+            sys.stdout.write(line)
+    sys.stdout.write("\n")
