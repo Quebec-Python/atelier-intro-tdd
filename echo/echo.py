@@ -1,2 +1,2 @@
-def echo(text=""):
-    print(text)
+def echo(*args):
+    print(' '.join(args))
