@@ -26,6 +26,15 @@ def test_given_wrong_file_name_then_prints_error_message(capsys):
     assert err == "cat: superduperfilename: No such file or directory"
 
 
+def test_given_directory_then_prints_error_message(capsys, tmpdir):
+    dirname = str(tmpdir)
+
+    cat(dirname)
+
+    out, err = capsys.readouterr()
+    assert err == "cat: {}: is a directory".format(dirname)
+
+
 def test_given_empty_file_then_prints_newline(capsys, filemaker):
     filepath = filemaker.create_file("emptyfile", "")
 
