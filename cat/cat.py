@@ -1,14 +1,19 @@
 import sys
 import os
 
-def cat(filepath):
+def cat(*filepaths):
+    for filepath in filepaths:
+        print_file(filepath)
+
+
+def print_file(filepath):
     if not os.path.exists(filepath):
-        print_no_such_file(filepath)
+        error_no_such_file(filepath)
     else:
         output = open(filepath).read()
         print(output)
 
 
-def print_no_such_file(filepath):
+def error_no_such_file(filepath):
     message = "cat: {}: No such file or directory"
     sys.stderr.write(message.format(filepath))
