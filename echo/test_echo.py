@@ -26,3 +26,10 @@ def test_given_multiple_arguments_then_prints_them_seperated_by_spaces(capsys):
 
     out, err = capsys.readouterr()
     assert out == "a b c\n"
+
+
+def test_given_option_newline_disabled_then_does_not_print_new_line(capsys):
+    echo("a", newline=False)
+
+    out, err = capsys.readouterr()
+    assert out == "a"
