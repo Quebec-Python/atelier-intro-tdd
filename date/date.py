@@ -1,2 +1,2 @@
-def date(timestamp, format):
-    print
+def date(timestamp, pattern):
+    print(pattern)
