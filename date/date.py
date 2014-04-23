@@ -1,2 +1,3 @@
 def date(timestamp, pattern):
-    print(pattern)
+    output = pattern.replace(r'%%', r'%')
+    print(output)

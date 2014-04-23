@@ -16,3 +16,10 @@ def test_given_format_with_text_then_prints_text(capsys):
 
     out, err = capsys.readouterr()
     assert out == 'abc 123\n'
+
+
+def test_given_format_with_double_percent_then_prints_percent(capsys):
+    date(TIMESTAMP, '%%')
+
+    out, err = capsys.readouterr()
+    assert out == '%\n'
