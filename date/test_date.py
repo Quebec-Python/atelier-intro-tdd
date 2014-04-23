@@ -23,3 +23,10 @@ def test_given_format_with_double_percent_then_prints_percent(capsys):
 
     out, err = capsys.readouterr()
     assert out == '%\n'
+
+
+def test_given_format_with_full_year_then_prints_full_year(capsys):
+    date(TIMESTAMP, '%Y')
+
+    out, err = capsys.readouterr()
+    assert out == '2001\n'
