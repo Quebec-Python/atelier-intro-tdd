@@ -66,3 +66,13 @@ def test_given_file_when_using_regex_then_prints_matching_lines(capsys, fileutil
     out, err = capsys.readouterr()
     assert '1' in out
     assert '2' in out
+
+
+def test_given_option_ignore_case_when_matching_capital_letters_then_prints_matching_lines(capsys, fileutil):
+    path = fileutil.create_file('uppercase', 'A\nb\n')
+
+    grep('a|b', path, ignore_case=True)
+
+    out, err = capsys.readouterr()
+    assert 'A' in out
+    assert 'b' in out
