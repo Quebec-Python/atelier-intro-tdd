@@ -56,3 +56,13 @@ def test_given_2_files_when_grepping_then_prints_lines_in_all_files(capsys, file
     out, err = capsys.readouterr()
     assert 'aa' in out
     assert 'ab' in out
+
+
+def test_given_file_when_using_regex_then_prints_matching_lines(capsys, fileutil):
+    path = fileutil.create_file('file', 'a\n1\nb\n2\n')
+
+    grep('[12]', path)
+
+    out, err = capsys.readouterr()
+    assert '1' in out
+    assert '2' in out
