@@ -12,5 +12,8 @@ SINGLE_DIGITS = {
 
 
 def translate_number(number):
-    translation = SINGLE_DIGITS[number]
-    print(translation)
+    if number in SINGLE_DIGITS:
+        translation = SINGLE_DIGITS[number]
+        print(translation)
+    else:
+        print("fou")
