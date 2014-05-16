@@ -29,7 +29,7 @@ def filter_matching_lines(regex, reader):
     matching = []
     for line_number, line in enumerate(reader.readlines(), 1):
         if regex.match(line):
-            matching.append((line_number, line))
+            matching.append((line_number, line.strip()))
 
     return matching
 

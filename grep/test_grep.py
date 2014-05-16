@@ -86,3 +86,12 @@ def test_given_option_print_line_number_when_grepping_then_prints_line_numbers(c
     out, err = capsys.readouterr()
     assert '1:a' in out
     assert '3:aa' in out
+
+
+def test_given_empty_lines_when_grepping_does_not_print_additional_lines(capsys, fileutil):
+    path = fileutil.create_file('empty_lines', 'a\n\na\n')
+
+    grep('a', path)
+
+    out, err = capsys.readouterr()
+    assert out == 'a\na\n'
