@@ -10,7 +10,13 @@ def grep(pattern, *paths, **options):
         with open(path) as reader:
             matching.extend(filter_matching_lines(regex, reader))
 
-    print('\n'.join(matching))
+    if options.get('line_number', False):
+        lines = ['{}:{}'.format(line_number, line)
+                 for (line_number, line) in matching]
+    else:
+        lines = [line for (line_number, line) in matching]
+
+    print('\n'.join(lines))
 
 
 def compile_flags(options):
@@ -21,4 +27,9 @@ def compile_flags(options):
 
 
 def filter_matching_lines(regex, reader):
-    return [line for line in reader if regex.match(line)]
+    matching = []
+    for line_number, line in enumerate(reader.readlines(), 1):
+        if regex.match(line):
+            matching.append((line_number, line))
+
+    return matching

@@ -76,3 +76,13 @@ def test_given_option_ignore_case_when_matching_capital_letters_then_prints_matc
     out, err = capsys.readouterr()
     assert 'A' in out
     assert 'b' in out
+
+
+def test_given_option_print_line_number_when_grepping_then_prints_line_numbers(capsys, fileutil):
+    path = fileutil.create_file('line_numbers', 'a\nb\naa\nbb\n')
+
+    grep('a', path, line_number=True)
+
+    out, err = capsys.readouterr()
+    assert '1:a' in out
+    assert '3:aa' in out
