@@ -1,2 +1,3 @@
 def grep(pattern, path):
-    print('')
+    with open(path) as reader:
+        print(reader.read())
