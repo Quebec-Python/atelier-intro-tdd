@@ -3,7 +3,13 @@ from sousou import translate_number
 SOUSOU_NUMBERS = {
     1: 'kere',
     2: 'firi',
-    3: 'saran'
+    3: 'saran',
+    4: 'nani',
+    5: 'souli',
+    6: 'senni',
+    7: 'solofere',
+    8: 'solomasara',
+    9: 'solomanani',
 }
 
 
