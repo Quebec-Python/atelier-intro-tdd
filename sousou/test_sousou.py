@@ -19,3 +19,10 @@ def test_given_single_digit_when_translated_then_prints_sousou_number(capsys):
 
         out, err = capsys.readouterr()
         assert translation in out
+
+
+def test_given_number_10_when_translated_then_prints_fou(capsys):
+    translate_number(10)
+
+    out, err = capsys.readouterr()
+    assert 'fou' in out
