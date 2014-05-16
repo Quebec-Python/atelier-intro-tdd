@@ -1,2 +1,5 @@
 def translate_number(number):
-    print("kere")
+    if number == 1:
+        print("kere")
+    else:
+        print("firi")
