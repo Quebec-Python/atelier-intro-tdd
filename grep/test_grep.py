@@ -30,3 +30,17 @@ def test_given_file_with_two_lines_when_pattern_contains_a_line_then_prints_line
     out, err = capsys.readouterr()
     assert 'b' in out
     assert 'a' not in out
+
+
+def test_given_2_files_when_grepping_then_prints_lines_in_all_files(capsys, tmpdir):
+    first_file = tmpdir.join('first')
+    first_file.write('aa\nbb\n')
+
+    second_file = tmpdir.join('second')
+    second_file.write('ab\nbc\n')
+
+    grep('a', str(first_file), str(second_file))
+
+    out, err = capsys.readouterr()
+    assert 'aa' in out
+    assert 'ab' in out
