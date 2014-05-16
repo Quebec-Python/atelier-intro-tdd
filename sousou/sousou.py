@@ -1,4 +1,4 @@
-SINGLE_DIGITS = {
+BASE_NUMBERS = {
     1: 'kere',
     2: 'firi',
     3: 'saran',
@@ -8,18 +8,19 @@ SINGLE_DIGITS = {
     7: 'solofere',
     8: 'solomasara',
     9: 'solomanani',
+    10: 'fou',
 }
+
+DOUBLE_DIGIT_PREFIX = 'fou nou'
 
 
 def translate_number(number):
-    output = ''
+    parts = []
+
     if number > 10:
-        output += 'fou nou '
+        parts.append(DOUBLE_DIGIT_PREFIX)
         number -= 10
-    elif number == 10:
-        output += 'fou'
 
-    if number in SINGLE_DIGITS:
-        output += SINGLE_DIGITS[number]
+    parts.append(BASE_NUMBERS[number])
 
-    print(output)
+    print(' '.join(parts))
