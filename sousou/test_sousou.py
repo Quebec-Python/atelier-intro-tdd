@@ -26,3 +26,10 @@ def test_given_number_10_when_translated_then_prints_fou(capsys):
 
     out, err = capsys.readouterr()
     assert 'fou' in out
+
+
+def test_given_number_11_when_translated_then_prints_fou_nou_kere(capsys):
+    translate_number(11)
+
+    out, err = capsys.readouterr()
+    assert 'fou nou kere' in out
