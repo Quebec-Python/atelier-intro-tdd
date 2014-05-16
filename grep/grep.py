@@ -1,8 +1,8 @@
 def grep(pattern, path):
-    matching = []
     with open(path) as reader:
-        for line in reader:
-            if pattern in line:
-                matching.append(line)
-
+        matching = filter_matching_lines(pattern, reader)
     print('\n'.join(matching))
+
+
+def filter_matching_lines(pattern, reader):
+    return [line for line in reader if pattern in line]
