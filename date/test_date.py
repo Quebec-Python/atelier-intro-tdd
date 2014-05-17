@@ -41,3 +41,27 @@ def test_given_full_date_then_prints_all_fields(capsys):
 
         out, err = capsys.readouterr()
         assert str(field) in out
+
+
+def test_given_percent_b_then_prints_full_month_name(capsys):
+    months = {
+        1: 'January',
+        2: 'Febuary',
+        3: 'March',
+        4: 'April',
+        5: 'May',
+        6: 'June',
+        7: 'July',
+        8: 'August',
+        9: 'September',
+        10: 'October',
+        11: 'November',
+        12: 'December'
+    }
+
+    for number, name in months.items():
+        timestamp = datetime.datetime(2000, number, 1, 0, 0, 0)
+        date(timestamp, '%A')
+
+        out, err = capsys.readouterr()
+        assert name in out
