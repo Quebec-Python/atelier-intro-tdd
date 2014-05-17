@@ -65,3 +65,23 @@ def test_given_percent_b_then_prints_full_month_name(capsys):
 
         out, err = capsys.readouterr()
         assert name in out
+
+
+def test_given_percent_a_then_prints_full_week_day(capsys):
+    #days in the month of january 2000
+    days = {
+        2: 'Sunday',
+        3: 'Monday',
+        4: 'Tuesday',
+        5: 'Wednesday',
+        6: 'Thursday',
+        7: 'Friday',
+        8: 'Saturday',
+    }
+
+    for number, name in days.items():
+        timestamp = datetime.datetime(2000, 1, number, 0, 0, 0)
+        date(timestamp, '%B')
+
+        out, err = capsys.readouterr()
+        assert name in out
