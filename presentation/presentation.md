@@ -2,7 +2,7 @@
 Introduction
 ============
 
- * Présentations individuels
+ * Présentations individuelles
  * But de la journée
  * Histoire d'horreur
  * Règles
@@ -49,7 +49,7 @@ Autre trucs et astuces du TDD :
 
  * Toujours commencer par le test minimale le plus simple
  * Ajouter des tests de plus en plus complexes au fur et à mesure de manière itérative
- * Si le test ne vous force pas à modifier votre code, il ne vaut peut-être pas la peine d'être écrit.
+ * Si le test ne vous force pas à modifier votre code, il ne vaut peut-être pas la peine d'être écrit
 
 Setup environnement
 ===================
@@ -71,7 +71,7 @@ Installation sous linux et mac :
     chmod +x Miniconda3-3.4.2-Linux-x86-64.sh
     ./Miniconda3-3.4.2-Linux-x86-64.sh
 
-**N'oubliez pas de fermer et ouvrir une nouvelle console une fois l'installation terminé !**
+**N'oubliez pas de fermer et ouvrir une nouvelle console une fois l'installation terminée !**
 
 
 Installation py.test
